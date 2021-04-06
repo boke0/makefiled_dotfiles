@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/boke0/.config/alacritty'
+let g:netrw_dirhist_4='/home/boke0/Works/product-maps/front/config'
+let g:netrw_dirhist_3='/home/boke0/Works/aiesec-mitama/503.html'
+let g:netrw_dirhist_2='/home/boke0/Works/product-maps/.direnv/aliases'
+let g:netrw_dirhist_1='/home/boke0/Works/product-maps/.direnv'
+let g:netrw_dirhist_0='/home/boke0/Works/mitama-py/scripts'
+let g:netrw_dirhist_9='/home/boke0/Works/aiesec-mitama/.git'
+let g:netrw_dirhist_8='/home/boke0/Documents'
+let g:netrw_dirhist_7='/home/boke0/.config/bspwm'
+let g:netrw_dirhist_6='/home/boke0/.config'

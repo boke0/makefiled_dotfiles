@@ -1,0 +1,63 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+hook_add = '''
+let g:vimfiler_safe_mode_by_default=0
+nnoremap <Leader>f :VimFiler<CR>
+'''
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = 'let g:airline#extensions#tabline#enabled = 1'
+
+[[plugins]]
+repo='jiangmiao/auto-pairs'
+
+[[plugins]]
+repo='terryma/vim-multiple-cursors'
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'
+
+[[plugins]]
+repo='prabirshrestha/asyncomplete.vim'
+hook_add = '''
+let g:asyncomplete_auto_popup=1
+let g:asyncomplete_popup_delay=200
+'''
+
+[[plugins]]
+repo='prabirshrestha/vim-lsp'
+hook_add='''
+nnoremap <C-]> :<C-u>LspDefinition<CR>
+nnoremap K :<C-u>LspHover<CR>
+nnoremap <Leader>R :<C-u>LspRename<CR>
+nnoremap <Leader>N :<C-u>LspReferences<CR>
+nnoremap <Leader>F :<C-u>LspDocumentDiagnostics<CR>
+nnoremap <Leader>s :<C-u>LspDocumentFormat<CR>
+set omnifunc=lsp#complete
+
+nnoremap <Leader>d :LspDefinition<CR>
+nnoremap <Leader>D :LspReferences<CR>
+'''
+
+[[plugins]]
+repo='prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo='mattn/vim-lsp-settings'
+
+[[plugins]]
+repo='mattn/vim-lsp-icons'
+
