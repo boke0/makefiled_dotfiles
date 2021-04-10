@@ -1,7 +1,8 @@
 alias ls="ls --color=auto"
 alias vi="vim"
 alias g="git"
-export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin"
+export GOPATH="$HOME/.go"
 
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
