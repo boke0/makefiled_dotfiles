@@ -14,9 +14,6 @@ set laststatus=2
 set wildmode=list:longest
 set nowrap
 
-syntax enable
-set background=dark
-colorscheme molokai
 
 set list listchars=tab:\>\-
 set expandtab
@@ -62,6 +59,7 @@ if dein#load_state('/home/boke0/.cache/dein')
 
     " Let dein manage dein
     " Required:
+    call dein#add('arcticicestudio/nord-vim')
     call dein#add('Shougo/dein.vim')
     call dein#add('Shougo/unite.vim')
     call dein#add('Shougo/vimfiler.vim')
@@ -92,6 +90,7 @@ syntax enable
 augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx,*.mjs,*.cjs setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab
 augroup END
 
 
@@ -122,6 +121,9 @@ set omnifunc=lsp#complete
 nnoremap <Leader>d :LspDefinition<CR>
 nnoremap <Leader>D :LspReferences<CR>
 
+syntax enable
+set background=dark
+colorscheme nord
 
 " If you want to install not installed plugins on startup.
 "if dein#check_install()
