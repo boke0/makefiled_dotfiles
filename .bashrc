@@ -1,8 +1,13 @@
 alias ls="ls --color=auto"
 alias vi="vim"
 alias g="git"
-export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:/$HOME/.go/bin"
 export GOPATH="$HOME/.go"
+export CLOUDSDK_PYTHON=python2
+export GOENV_ROOT=$HOME/.goenv
+export EDITOR=vim
+export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:/$HOME/.go/bin:$GOENV_ROOT/bin:/home/boke0/.local/share/gem/ruby/2.7.3:/usr/lib/ruby/gems/2.7.3"
+eval "$(goenv init -)"
+eval "$(rbenv init -)"
 
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
@@ -72,6 +77,10 @@ lab() {
     tmux split-window -v -p 30
     tmux select-pane -U
     clear-pane
+}
+
+wcd() {
+    cd "$HOME/Works/$1"
 }
 
 eval "$(direnv hook bash)"

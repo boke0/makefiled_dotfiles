@@ -59,7 +59,7 @@ if dein#load_state('/home/boke0/.cache/dein')
 
     " Let dein manage dein
     " Required:
-    call dein#add('arcticicestudio/nord-vim')
+    call dein#add('cocopon/iceberg.vim')
     call dein#add('Shougo/dein.vim')
     call dein#add('Shougo/unite.vim')
     call dein#add('Shougo/vimfiler.vim')
@@ -73,6 +73,7 @@ if dein#load_state('/home/boke0/.cache/dein')
     call dein#add('prabirshrestha/asyncomplete-lsp.vim')
     call dein#add('mattn/vim-lsp-settings')
     call dein#add('mattn/vim-lsp-icons')
+    call dein#add('vim-scripts/solargraph')
 
     call dein#add('puremourning/vimspector', {'lazy':1})
 
@@ -97,7 +98,7 @@ augroup END
 " VimAirline settings
 
 let g:airline#extensions#tabline#enabled = 1
-
+let g:airline_theme='iceberg'
 
 " VimFiler Settings
 
@@ -123,7 +124,7 @@ nnoremap <Leader>D :LspReferences<CR>
 
 syntax enable
 set background=dark
-colorscheme nord
+colorscheme iceberg
 
 " If you want to install not installed plugins on startup.
 "if dein#check_install()
