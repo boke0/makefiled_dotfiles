@@ -5,23 +5,26 @@ export GOPATH="$HOME/.go"
 export CLOUDSDK_PYTHON=python2
 export GOENV_ROOT=$HOME/.goenv
 export EDITOR=vim
-export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:/$HOME/.go/bin:$GOENV_ROOT/bin:/home/boke0/.local/share/gem/ruby/2.7.3:/usr/lib/ruby/gems/2.7.3"
+#export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:/$HOME/.go/bin:$GOENV_ROOT/bin:/home/boke0/.local/share/gem/ruby/2.7.3:/usr/lib/ruby/gems/2.7.3:/usr/lib/jvm/default/bin"
 eval "$(goenv init -)"
 eval "$(rbenv init -)"
 
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
 
+
 set -o vi
 
 prompt() {
-    local GITPS='$(__git_ps1 " %s")'
+    local GITPS='$(__git_ps1 "[%s]")'
     local BLUE="\[\e[1;34m\]"
     local RED="\[\e[1;31m\]"
     local GREEN="\[\e[2;32m\]"
     local WHITE="\[\e[00m\]"
     local GRAY="\[\e[1;37m\]"
-    PS1="\[\e[1;40m\]\[\e[1;37m\] \w \[\e[1;30;1;41m\]\[\e[30m\] $GITPS \[\e[0m\]\[\e[1;31m\] $WHITE "
+    local RESET="\[\e[0m\]"
+    PS1=" $RED\u$WHITE@\h$RESET $GRAY\w$RESET $RED$GITPS\n\[\e[0m\]$ $WHITE "
 }
 
 prompt
