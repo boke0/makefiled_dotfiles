@@ -7,6 +7,7 @@ export GOENV_ROOT=$HOME/.goenv
 export EDITOR=vim
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:/$HOME/.go/bin:$GOENV_ROOT/bin:/home/boke0/.local/share/gem/ruby/2.7.3:/usr/lib/ruby/gems/2.7.3:/usr/lib/jvm/default/bin"
+export GIT_PS1_SHOWDIRTYSTATE=1
 eval "$(goenv init -)"
 eval "$(rbenv init -)"
 
