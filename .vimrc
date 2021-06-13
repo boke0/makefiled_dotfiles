@@ -40,7 +40,7 @@ inoremap <C-l> <Right>
 nmap <Leader>u <C-r>
 nmap <Leader>n :nohlsearch<CR><ESC>
 
-let g:session_path = expand('~/.vim/sessions')
+let g:session_path = expand($HOME . '/.vim/sessions')
 
 if !isdirectory(g:session_path)
     call mkdir(g:session_path, 'p')
@@ -51,11 +51,11 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/boke0/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/boke0/.cache/dein')
-    call dein#begin('/home/boke0/.cache/dein')
+if dein#load_state($HOME . '/.cache/dein')
+    call dein#begin($HOME . '/.cache/dein')
 
     " Let dein manage dein
     " Required:
