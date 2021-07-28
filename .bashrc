@@ -10,6 +10,7 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:/$HOME/.go
 export GIT_PS1_SHOWDIRTYSTATE=1
 eval "$(goenv init -)"
 eval "$(rbenv init -)"
+wmname LG3D
 
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
@@ -83,10 +84,23 @@ lab() {
     clear-pane
 }
 
+complete -F _dev lab
+
 wcd() {
     cd "$HOME/Works/$1"
 }
 
+complete -F _dev wcd
+
 eval "$(direnv hook bash)"
 
 source "$HOME/.cargo/env"
+source /usr/share/jenv-git/init-jenv.sh
+
+alias .="cd .."
+alias ..="cd ../.."
+alias ...="cd ../../.."
+alias ....="cd ../../../.."
+alias .....="cd ../../../../.."
+alias ......="cd ../../../../../.."
+alias .......="cd ../../../../../../.."
