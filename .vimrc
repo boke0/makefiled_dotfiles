@@ -73,13 +73,22 @@ if dein#load_state($HOME . '/.cache/dein')
     call dein#add('prabirshrestha/asyncomplete-lsp.vim')
     call dein#add('mattn/vim-lsp-settings')
     call dein#add('mattn/vim-lsp-icons')
-    call dein#add('vim-scripts/solargraph')
 
     call dein#add('puremourning/vimspector', {'lazy':1})
 
     " Required:
     call dein#end()
     call dein#save_state()
+
+    if executable('sxiv') && executable('gimp') && executable('inkscape')
+        augroup vimfiler_mapping
+            autocmd!
+            autocmd FileType vimfiler nmap <buffer> x <Plug>(vimfiler_execute_vimfiler_associated)
+        augroup END
+        call vimfiler#set_execute_file('svg', ['sxiv', 'inkscape', 'vim'])
+        call vimfiler#set_execute_file('png,jpeg,jpg,heic,gif,tiff', ['sxiv', 'gimp', 'inkscape'])
+        call vimfiler#set_execute_file('pdf', ['zathura'])
+    endif
 endif
 
 " Required:
@@ -127,6 +136,6 @@ set background=dark
 colorscheme iceberg
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
