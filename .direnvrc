@@ -11,3 +11,8 @@ export_function() {
     chmod +x "$target"
   fi
 }
+
+clear_direnv_aliases() {
+  local alias_dir=$PWD/.direnv/aliases
+  rm -rf $alias_dir/*
+}
