@@ -10,13 +10,13 @@ export LANG=ja_JP.UTF-8
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$GOENV_ROOT/bin:$HOME/.rbenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.nodenv/bin"
 export GIT_PS1_SHOWDIRTYSTATE=1
-if [ type -a nodenv > /dev/null 2>&1 ]; then
+if [ -x "`which nodenv`" ]; then
     eval "$(nodenv init -)"
 fi
-if [ type -a goenv > /dev/null 2>&1 ]; then
+if [ -x "`which goenv`" ]; then
     eval "$(goenv init -)"
 fi
-if [ type -a rbenv > /dev/null 2>&1 ]; then
+if [ -x "`which rbenv`" ]; then
     eval "$(rbenv init -)"
 fi
 
@@ -99,7 +99,7 @@ wcd() {
 
 complete -F _dev wcd
 
-if [ type -a direnv $1 > /dev/null 2>&1 ]; then
+if [ -x "`which direnv`" ]; then
     eval "$(direnv hook bash)"
 fi
 
