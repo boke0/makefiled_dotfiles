@@ -1,20 +1,21 @@
 alias ls="ls --color=auto"
 alias vi="vim"
 alias g="git"
+alias tmux="tmux -u"
 export GOPATH="$HOME/.go"
 export CLOUDSDK_PYTHON=python2
 export GOENV_ROOT=$HOME/.goenv
 export EDITOR=vim
+export LANG=ja_JP.UTF-8
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
-export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:/$HOME/.go/bin:$GOENV_ROOT/bin:/home/boke0/.local/share/gem/ruby/2.7.3:/usr/lib/ruby/gems/2.7.3:/usr/lib/jvm/default/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$GOENV_ROOT/bin:$HOME/.rbenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.nodenv/bin"
 export GIT_PS1_SHOWDIRTYSTATE=1
+eval "$(nodenv init -)"
 eval "$(goenv init -)"
 eval "$(rbenv init -)"
-wmname LG3D
 
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
-
 
 set -o vi
 
@@ -93,6 +94,10 @@ wcd() {
 complete -F _dev wcd
 
 eval "$(direnv hook bash)"
+
+if [[ ! -e "$HOME/.cargo/env" ]]; then
+    touch $HOME/.cargo/env
+fi
 
 source "$HOME/.cargo/env"
 source /usr/share/jenv-git/init-jenv.sh
