@@ -10,9 +10,15 @@ export LANG=ja_JP.UTF-8
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$GOENV_ROOT/bin:$HOME/.rbenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.nodenv/bin"
 export GIT_PS1_SHOWDIRTYSTATE=1
-eval "$(nodenv init -)"
-eval "$(goenv init -)"
-eval "$(rbenv init -)"
+if [ type -a nodenv > /dev/null 2>&1 ]; then
+    eval "$(nodenv init -)"
+fi
+if [ type -a goenv > /dev/null 2>&1 ]; then
+    eval "$(goenv init -)"
+fi
+if [ type -a rbenv > /dev/null 2>&1 ]; then
+    eval "$(rbenv init -)"
+fi
 
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
@@ -93,14 +99,16 @@ wcd() {
 
 complete -F _dev wcd
 
-eval "$(direnv hook bash)"
-
-if [[ ! -e "$HOME/.cargo/env" ]]; then
-    touch $HOME/.cargo/env
+if [ type -a direnv $1 > /dev/null 2>&1 ]; then
+    eval "$(direnv hook bash)"
 fi
 
-source "$HOME/.cargo/env"
-source /usr/share/jenv-git/init-jenv.sh
+if [ -f $HOME/.cargo/env ]; then
+    source "$HOME/.cargo/env"
+fi
+if [ -f /usr/share/jenv-git/init-jenv ]; then
+    source /usr/share/jenv-git/init-jenv.sh
+fi
 
 alias .="cd .. && pushd ."
 alias ..="cd ../.. && pushd ."
