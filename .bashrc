@@ -1,5 +1,6 @@
 alias ls="ls --color=auto"
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 alias g="git"
 alias tmux="tmux -u"
 export GOPATH="$HOME/.go"
@@ -7,8 +8,8 @@ export CLOUDSDK_PYTHON=python2
 export GOENV_ROOT=$HOME/.goenv
 export EDITOR=vim
 export LANG=ja_JP.UTF-8
-#export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
-export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$GOENV_ROOT/bin:$HOME/.rbenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.nodenv/bin"
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$GOENV_ROOT/bin:$HOME/.rbenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.nodenv/bin:$HOME/.google-cloud-sdk/bin:$HOME/.gsutil/gsutil/"
 export GIT_PS1_SHOWDIRTYSTATE=1
 if [ -x "`which nodenv`" ]; then
     eval "$(nodenv init -)"
@@ -109,6 +110,9 @@ fi
 if [ -f /usr/share/jenv-git/init-jenv ]; then
     source /usr/share/jenv-git/init-jenv.sh
 fi
+if [ -f $HOME/.profile ]; then
+    source $HOME/.profile
+fi
 
 alias .="cd .. && pushd ."
 alias ..="cd ../.. && pushd ."
@@ -118,3 +122,4 @@ alias .....="cd ../../../../.. && pushd ."
 alias ......="cd ../../../../../.. && pushd ."
 alias .......="cd ../../../../../../.. && pushd ."
 alias ,,="popd"
+

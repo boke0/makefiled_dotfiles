@@ -74,8 +74,6 @@ if dein#load_state($HOME . '/.cache/dein')
     call dein#add('mattn/vim-lsp-settings')
     call dein#add('mattn/vim-lsp-icons')
 
-    call dein#add('puremourning/vimspector', {'lazy':1})
-
     " Required:
     call dein#end()
     call dein#save_state()
@@ -107,6 +105,7 @@ augroup END
 " VimAirline settings
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_highlighting_cache=1
 let g:airline_theme='iceberg'
 
 " VimFiler Settings
@@ -116,6 +115,8 @@ nnoremap <Leader>f :VimFiler<CR>
 
 
 " Vim Lsp Settings
+
+let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
 
 let g:asyncomplete_auto_popup=1
 let g:asyncomplete_popup_delay=200
