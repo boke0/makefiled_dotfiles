@@ -68,11 +68,8 @@ if dein#load_state($HOME . '/.cache/dein')
     call dein#add('vim-airline/vim-airline')
     call dein#add('jiangmiao/auto-pairs')
     call dein#add('terryma/vim-multiple-cursors')
-    call dein#add('prabirshrestha/asyncomplete.vim')
-    call dein#add('prabirshrestha/vim-lsp')
-    call dein#add('prabirshrestha/asyncomplete-lsp.vim')
-    call dein#add('mattn/vim-lsp-settings')
-    call dein#add('mattn/vim-lsp-icons')
+    call dein#add('neovim/nvim-lspconfig')
+    call dein#add('williamboman/nvim-lsp-installer')
 
     " Required:
     call dein#end()
@@ -87,6 +84,15 @@ if dein#load_state($HOME . '/.cache/dein')
         call vimfiler#set_execute_file('png,jpeg,jpg,heic,gif,tiff', ['sxiv', 'gimp', 'inkscape'])
         call vimfiler#set_execute_file('pdf', ['zathura'])
     endif
+
+    lsp_installer = require("nvim-lsp-installer")
+    lsp_installer.on_server_ready(function(server)
+        local opts = {}
+        opts.on_attach = on_attach
+
+        server:setup(opts)
+        vim.cmd [[ do User LspAttachBuffers ]]
+    end)
 endif
 
 " Required:

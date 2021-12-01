@@ -1,0 +1,135 @@
+vim.o.fenc="utf-8"
+vim.o.backup=false
+vim.o.swapfile=false
+vim.o.autoread=true
+vim.o.hidden=true
+vim.o.showcmd=true
+vim.o.number=true
+vim.o.virtualedit="onemore"
+vim.o.smartindent=true
+vim.o.showmatch=true
+vim.o.laststatus=2
+vim.o.wildmode="list:longest"
+vim.o.wrap=false
+
+
+vim.o.listchars="tab:>-"
+vim.o.expandtab=true
+vim.o.tabstop=4
+vim.o.shiftwidth=4
+vim.o.ignorecase=true
+vim.o.smartcase=true
+vim.o.incsearch=true
+vim.o.wrapscan=true
+vim.o.hlsearch=true
+vim.o.clipboard="unnamedplus"
+vim.o.background='dark'
+
+vim.g.mapleader=" "
+
+opt_ns = { noremap = true, silent = true }
+
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opt_ns)
+vim.api.nvim_set_keymap('n', '<Leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opt_ns)
+vim.api.nvim_set_keymap('n', '<Leader>N', '<cmd>lua vim.lsp.buf.references<CR>', opt_ns)
+vim.api.nvim_set_keymap('n', '<Leader>s', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opt_ns)
+vim.api.nvim_set_keymap('n', '[s', '<cmd>lua vim.lsp.buf.diagnostic.goto_prev()<CR>', opt_ns)
+vim.api.nvim_set_keymap('n', ']s', '<cmd>lua vim.lsp.buf.diagnostic.goto_next()<CR>', opt_ns)
+vim.api.nvim_set_keymap('n', '<Leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt_ns)
+
+
+vim.api.nvim_set_keymap('n', 'sh', '<C-w>h', opt_ns)
+vim.api.nvim_set_keymap('n', 'sj', '<C-w>j', opt_ns)
+vim.api.nvim_set_keymap('n', 'sk', '<C-w>k', opt_ns)
+vim.api.nvim_set_keymap('n', 'sl', '<C-w>l', opt_ns)
+vim.api.nvim_set_keymap('n', '<Leader>u', '<C-r>', opt_ns)
+vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', opt_ns)
+vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', opt_ns)
+vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', opt_ns)
+vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', opt_ns)
+
+opt_n = { noremap = true, silent = false }
+
+vim.api.nvim_set_keymap('n', '<Leader>D', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt_n)
+vim.api.nvim_set_keymap('n', '<Leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>', opt_n)
+vim.api.nvim_set_keymap('n', '<Leader>r', '<cmd>lua vim.lsp.buf.references()<CR>', opt_n)
+
+vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', opt_n)
+vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', opt_n)
+vim.api.nvim_set_keymap('n', '<Leader>n', ':nohlsearch<CR><ESC>', opt_n)
+vim.api.nvim_set_keymap('n', '<Leader>f', ':VimFiler<CR>', opt_n)
+
+vim.g.vimfiler_safe_mode_by_default=0
+
+require('packer').startup(function()
+    use 'wbthomason/packer.nvim'
+    use 'cocopon/iceberg.vim'
+    use 'Shougo/unite.vim'
+    use 'Shougo/vimfiler.vim'
+    use 'sheerun/vim-polyglot'
+    use 'ryanoasis/vim-devicons'
+    use 'vim-airline/vim-airline'
+    use 'jiangmiao/auto-pairs'
+    use 'terryma/vim-multiple-cursors'
+    use 'neovim/nvim-lspconfig'
+    use {
+        'williamboman/nvim-lsp-installer',
+        config = function()
+            local lsp_installer = require("nvim-lsp-installer")
+            lsp_installer.on_server_ready(function(server)
+                local opts = {}
+                opts.on_attach = on_attach
+                opts.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+                server:setup(opts)
+                vim.cmd [[ do User LspAttachBuffers ]]
+            end)
+        end
+    }
+    use 'tanvirtin/monokai.nvim'
+
+    use {
+        "hrsh7th/nvim-cmp",
+        config = function()
+            local cmp = require("cmp")
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        vim.fn["vsnip#anonymous"](args.body)
+                    end,
+                },
+                mapping = {
+                    ["<C-y>"] = cmp.mapping.complete(),
+                    ["<C-c>"] = cmp.mapping.close(),
+                    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+                    ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.close(),
+                    ['<CR>'] = cmp.mapping.confirm({
+                        behavior = cmp.ConfirmBehavior.Replace,
+                        select = true,
+                    })
+                },
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "vsnip" },
+                }, {
+                    { name = "buffer" },
+                })
+            })
+        end
+    }
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-vsnip"
+    use "hrsh7th/cmp-buffer"
+
+    use "hrsh7th/vim-vsnip"
+
+    require('monokai').setup {}
+end)
+
+vim.opt.completeopt = "menu,menuone,noselect"
