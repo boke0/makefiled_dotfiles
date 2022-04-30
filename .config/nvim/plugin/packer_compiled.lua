@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/boke0/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/boke0/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/boke0/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/boke0/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/boke0/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "/home/boke0/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/boke0/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/boke0/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/boke0/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/boke0/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -100,13 +100,13 @@ _G.packer_plugins = {
     url = "https://github.com/tanvirtin/monokai.nvim"
   },
   ["nvim-cmp"] = {
-    config = { "\27LJ\1\2;\0\1\3\0\4\0\0064\1\0\0007\1\1\0017\1\2\0017\2\3\0>\1\2\1G\0\1\0\tbody\20vsnip#anonymous\afn\bvimÂ\5\1\0\a\0+\0[4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\6\0003\3\4\0001\4\3\0:\4\5\3:\3\a\0023\3\n\0007\4\b\0007\4\t\4>\4\1\2:\4\v\0037\4\b\0007\4\f\4>\4\1\2:\4\r\0037\4\b\0007\4\14\0043\5\17\0007\6\15\0007\6\16\6:\6\18\5>\4\2\2:\4\19\0037\4\b\0007\4\20\0043\5\21\0007\6\15\0007\6\16\6:\6\18\5>\4\2\2:\4\22\0037\4\b\0007\4\14\0043\5\24\0007\6\15\0007\6\23\6:\6\18\5>\4\2\2:\4\25\0037\4\b\0007\4\20\0043\5\26\0007\6\15\0007\6\23\6:\6\18\5>\4\2\2:\4\27\0037\4\b\0007\4\28\4'\5üÿ>\4\2\2:\4\29\0037\4\b\0007\4\28\4'\5\4\0>\4\2\2:\4\30\0037\4\b\0007\4\t\4>\4\1\2:\4\31\0037\4\b\0007\4\f\4>\4\1\2:\4 \0037\4\b\0007\4!\0043\5$\0007\6\"\0007\6#\6:\6\18\5>\4\2\2:\4%\3:\3\b\0027\3&\0007\3'\0032\4\3\0003\5(\0;\5\1\0043\5)\0;\5\2\0042\5\3\0003\6*\0;\6\1\5>\3\3\2:\3'\2>\1\2\1G\0\1\0\1\0\1\tname\vbuffer\1\0\1\tname\nvsnip\1\0\1\tname\rnvim_lsp\fsources\vconfig\t<CR>\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\14<C-Space>\n<C-f>\n<C-b>\16scroll_docs\t<Up>\1\0\0\v<Down>\1\0\0\vSelect\n<C-p>\1\0\0\21select_prev_item\n<C-n>\rbehavior\1\0\0\vInsert\19SelectBehavior\21select_next_item\n<C-c>\nclose\n<C-y>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0" },
+    config = { "\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimÂ\5\1\0\t\0+\0[6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0035\4\n\0009\5\b\0009\5\t\5B\5\1\2=\5\v\0049\5\b\0009\5\f\5B\5\1\2=\5\r\0049\5\b\0009\5\14\0055\a\17\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\19\0049\5\b\0009\5\20\0055\a\21\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\22\0049\5\b\0009\5\14\0055\a\24\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\25\0049\5\b\0009\5\20\0055\a\26\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\27\0049\5\b\0009\5\28\5)\aüÿB\5\2\2=\5\29\0049\5\b\0009\5\28\5)\a\4\0B\5\2\2=\5\30\0049\5\b\0009\5\t\5B\5\1\2=\5\31\0049\5\b\0009\5\f\5B\5\1\2=\5 \0049\5\b\0009\5!\0055\a$\0009\b\"\0009\b#\b=\b\18\aB\5\2\2=\5%\4=\4\b\0039\4&\0009\4'\0044\6\3\0005\a(\0>\a\1\0065\a)\0>\a\2\0064\a\3\0005\b*\0>\b\1\aB\4\3\2=\4'\3B\1\2\1K\0\1\0\1\0\1\tname\vbuffer\1\0\1\tname\nvsnip\1\0\1\tname\rnvim_lsp\fsources\vconfig\t<CR>\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\14<C-Space>\n<C-f>\n<C-b>\16scroll_docs\t<Up>\1\0\0\v<Down>\1\0\0\vSelect\n<C-p>\1\0\0\21select_prev_item\n<C-n>\rbehavior\1\0\0\vInsert\19SelectBehavior\21select_next_item\n<C-c>\nclose\n<C-y>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0" },
     loaded = true,
     path = "/home/boke0/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
-    config = { "\27LJ\1\2ò\1\0\1\5\0\f\0\0232\1\0\0004\2\0\0:\2\0\0014\2\2\0%\3\3\0>\2\2\0027\2\4\0024\3\5\0007\3\6\0037\3\a\0037\3\b\3>\3\1\0=\2\0\2:\2\1\1\16\3\0\0007\2\t\0\16\4\1\0>\2\3\0014\2\5\0007\2\n\2%\3\v\0>\2\2\1G\0\1\0\31 do User LspAttachBuffers \bcmd\nsetup\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\frequire\17capabilities\14on_attachO\1\0\3\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\1\2\0001\2\3\0>\1\2\1G\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0" },
+    config = { "\27LJ\2\nò\1\0\1\6\0\f\0\0234\1\0\0006\2\0\0=\2\0\0016\2\2\0'\4\3\0B\2\2\0029\2\4\0026\4\5\0009\4\6\0049\4\a\0049\4\b\4B\4\1\0A\2\0\2=\2\1\1\18\4\0\0009\2\t\0\18\5\1\0B\2\3\0016\2\5\0009\2\n\2'\4\v\0B\2\2\1K\0\1\0\31 do User LspAttachBuffers \bcmd\nsetup\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\frequire\17capabilities\14on_attachO\1\0\4\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\1\2\0003\3\3\0B\1\2\1K\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0" },
     loaded = true,
     path = "/home/boke0/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
@@ -159,18 +159,19 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\1\2;\0\1\3\0\4\0\0064\1\0\0007\1\1\0017\1\2\0017\2\3\0>\1\2\1G\0\1\0\tbody\20vsnip#anonymous\afn\bvimÂ\5\1\0\a\0+\0[4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\6\0003\3\4\0001\4\3\0:\4\5\3:\3\a\0023\3\n\0007\4\b\0007\4\t\4>\4\1\2:\4\v\0037\4\b\0007\4\f\4>\4\1\2:\4\r\0037\4\b\0007\4\14\0043\5\17\0007\6\15\0007\6\16\6:\6\18\5>\4\2\2:\4\19\0037\4\b\0007\4\20\0043\5\21\0007\6\15\0007\6\16\6:\6\18\5>\4\2\2:\4\22\0037\4\b\0007\4\14\0043\5\24\0007\6\15\0007\6\23\6:\6\18\5>\4\2\2:\4\25\0037\4\b\0007\4\20\0043\5\26\0007\6\15\0007\6\23\6:\6\18\5>\4\2\2:\4\27\0037\4\b\0007\4\28\4'\5üÿ>\4\2\2:\4\29\0037\4\b\0007\4\28\4'\5\4\0>\4\2\2:\4\30\0037\4\b\0007\4\t\4>\4\1\2:\4\31\0037\4\b\0007\4\f\4>\4\1\2:\4 \0037\4\b\0007\4!\0043\5$\0007\6\"\0007\6#\6:\6\18\5>\4\2\2:\4%\3:\3\b\0027\3&\0007\3'\0032\4\3\0003\5(\0;\5\1\0043\5)\0;\5\2\0042\5\3\0003\6*\0;\6\1\5>\3\3\2:\3'\2>\1\2\1G\0\1\0\1\0\1\tname\vbuffer\1\0\1\tname\nvsnip\1\0\1\tname\rnvim_lsp\fsources\vconfig\t<CR>\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\14<C-Space>\n<C-f>\n<C-b>\16scroll_docs\t<Up>\1\0\0\v<Down>\1\0\0\vSelect\n<C-p>\1\0\0\21select_prev_item\n<C-n>\rbehavior\1\0\0\vInsert\19SelectBehavior\21select_next_item\n<C-c>\nclose\n<C-y>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
-time([[Config for nvim-cmp]], false)
 -- Config for: nvim-lsp-installer
 time([[Config for nvim-lsp-installer]], true)
-try_loadstring("\27LJ\1\2ò\1\0\1\5\0\f\0\0232\1\0\0004\2\0\0:\2\0\0014\2\2\0%\3\3\0>\2\2\0027\2\4\0024\3\5\0007\3\6\0037\3\a\0037\3\b\3>\3\1\0=\2\0\2:\2\1\1\16\3\0\0007\2\t\0\16\4\1\0>\2\3\0014\2\5\0007\2\n\2%\3\v\0>\2\2\1G\0\1\0\31 do User LspAttachBuffers \bcmd\nsetup\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\frequire\17capabilities\14on_attachO\1\0\3\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\1\2\0001\2\3\0>\1\2\1G\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0", "config", "nvim-lsp-installer")
+try_loadstring("\27LJ\2\nò\1\0\1\6\0\f\0\0234\1\0\0006\2\0\0=\2\0\0016\2\2\0'\4\3\0B\2\2\0029\2\4\0026\4\5\0009\4\6\0049\4\a\0049\4\b\4B\4\1\0A\2\0\2=\2\1\1\18\4\0\0009\2\t\0\18\5\1\0B\2\3\0016\2\5\0009\2\n\2'\4\v\0B\2\2\1K\0\1\0\31 do User LspAttachBuffers \bcmd\nsetup\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\frequire\17capabilities\14on_attachO\1\0\4\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\1\2\0003\3\3\0B\1\2\1K\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0", "config", "nvim-lsp-installer")
 time([[Config for nvim-lsp-installer]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+try_loadstring("\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimÂ\5\1\0\t\0+\0[6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0035\4\n\0009\5\b\0009\5\t\5B\5\1\2=\5\v\0049\5\b\0009\5\f\5B\5\1\2=\5\r\0049\5\b\0009\5\14\0055\a\17\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\19\0049\5\b\0009\5\20\0055\a\21\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\22\0049\5\b\0009\5\14\0055\a\24\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\25\0049\5\b\0009\5\20\0055\a\26\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\27\0049\5\b\0009\5\28\5)\aüÿB\5\2\2=\5\29\0049\5\b\0009\5\28\5)\a\4\0B\5\2\2=\5\30\0049\5\b\0009\5\t\5B\5\1\2=\5\31\0049\5\b\0009\5\f\5B\5\1\2=\5 \0049\5\b\0009\5!\0055\a$\0009\b\"\0009\b#\b=\b\18\aB\5\2\2=\5%\4=\4\b\0039\4&\0009\4'\0044\6\3\0005\a(\0>\a\1\0065\a)\0>\a\2\0064\a\3\0005\b*\0>\b\1\aB\4\3\2=\4'\3B\1\2\1K\0\1\0\1\0\1\tname\vbuffer\1\0\1\tname\nvsnip\1\0\1\tname\rnvim_lsp\fsources\vconfig\t<CR>\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\14<C-Space>\n<C-f>\n<C-b>\16scroll_docs\t<Up>\1\0\0\v<Down>\1\0\0\vSelect\n<C-p>\1\0\0\21select_prev_item\n<C-n>\rbehavior\1\0\0\vInsert\19SelectBehavior\21select_next_item\n<C-c>\nclose\n<C-y>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
+time([[Config for nvim-cmp]], false)
 if should_profile then save_profiles() end
 
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

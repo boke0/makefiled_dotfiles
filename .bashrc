@@ -5,21 +5,14 @@ alias g="git"
 alias tmux="tmux -u"
 export GOPATH="$HOME/.go"
 export CLOUDSDK_PYTHON=python2
-export GOENV_ROOT=$HOME/.goenv
-export EDITOR=vim
-export LANG=ja_JP.UTF-8
+export EDITOR=nvim
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
-export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$GOENV_ROOT/bin:$HOME/.rbenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.nodenv/bin:$HOME/.google-cloud-sdk/bin:$HOME/.gsutil/gsutil/"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$HOME/.anyenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.google-cloud-sdk/bin:$HOME/.gsutil/gsutil/"
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export GIT_PS1_SHOWDIRTYSTATE=1
-if [ -x "`which nodenv`" ]; then
-    eval "$(nodenv init -)"
-fi
-if [ -x "`which goenv`" ]; then
-    eval "$(goenv init -)"
-fi
-if [ -x "`which rbenv`" ]; then
-    eval "$(rbenv init -)"
+if [ -x "`which anyenv`" ]; then
+    export ANYENV_ROOT="$HOME/.anyenv"
+    eval "$(anyenv init -)"
 fi
 
 source "$HOME/.git-completion.bash"

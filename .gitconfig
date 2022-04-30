@@ -1,5 +1,5 @@
 [user]
-	email = speken00.tt@gmail.com
+	email = boke0@u-gen.site
 	name = boke0
 [pull]
 	rebase = false
@@ -7,7 +7,7 @@
 	defaultBranch = master
 
 [core]
-	editor = vim
+	editor = nvim
 
 [alias]
 	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
