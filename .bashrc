@@ -71,7 +71,11 @@ deh() {
 _dev() {
     local cur prev cword
     _get_comp_words_by_ref -n : cur prev cword
-    COMPREPLY=( $(compgen -W "$(ls -N "$HOME/Works")" -- "${cur}") )
+    if ["$(uname)" == "Darwin"]; then
+        COMPREPLY=( $(compgen -W "$(ls "$HOME/Works")" -- "${cur}") )
+    else
+        COMPREPLY=( $(compgen -W "$(ls -N "$HOME/Works")" -- "${cur}") )
+    fi
 }
 
 complete -F _dev dev
