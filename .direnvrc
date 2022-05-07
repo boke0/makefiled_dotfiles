@@ -1,0 +1,43 @@
+export_current_dir() {
+  export DIRENV_ROOT_DIR=$PWD
+}
+
+export_function() {
+  local name=$1
+  local alias_dir=$PWD/.direnv/aliases
+  mkdir -p "$alias_dir"
+  PATH_add "$alias_dir"
+  local target="$alias_dir/$name"
+  if declare -f "$name" >/dev/null; then
+    echo "#!/usr/bin/env bash" > "$target"
+    declare -f "$name" >> "$target" 2>/dev/null
+    echo "$name" >> "$target"
+    chmod +x "$target"
+  fi
+}
+
+clear_direnv_aliases() {
+  local alias_dir=$PWD/.direnv/aliases
+  rm -rf $alias_dir/*
+}
+
+clear_direnv_completions() {
+  local completion_dir=$PWD/.direnv/completions
+  rm -rf $completion_dir/*
+}
+
+export_complete_function() {
+  local name=$1
+  local command=$2
+  local completion_dir=$PWD/.direnv/completions
+  mkdir -p "$completion_dir"
+  PATH_add "$completion_dir"
+  local target="$completion_dir/$name"
+  if declare -f "$name" >/dev/null; then
+    echo "#!/usr/bin/env bash" > "$target"
+    declare -f "$name" >> "$target" 2>/dev/null
+    echo "$name" >> "$target"
+    chmod +x "$target"
+  fi
+  complete -C $name $command
+}
