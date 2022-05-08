@@ -24,6 +24,7 @@ vim.o.wrapscan=true
 vim.o.hlsearch=true
 vim.o.clipboard="unnamedplus"
 vim.o.background='dark'
+vim.o.imdisable=true
 
 vim.g.mapleader=" "
 
@@ -43,10 +44,6 @@ vim.api.nvim_set_keymap('n', 'sj', '<C-w>j', opt_ns)
 vim.api.nvim_set_keymap('n', 'sk', '<C-w>k', opt_ns)
 vim.api.nvim_set_keymap('n', 'sl', '<C-w>l', opt_ns)
 vim.api.nvim_set_keymap('n', '<Leader>u', '<C-r>', opt_ns)
-vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', opt_ns)
-vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', opt_ns)
-vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', opt_ns)
-vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', opt_ns)
 
 opt_n = { noremap = true, silent = false }
 
@@ -60,6 +57,12 @@ vim.api.nvim_set_keymap('n', '<Leader>n', ':nohlsearch<CR><ESC>', opt_n)
 vim.api.nvim_set_keymap('n', '<Leader>f', ':VimFiler<CR>', opt_n)
 
 vim.g.vimfiler_safe_mode_by_default=0
+vim.g['eskk#directory'] = "~/.jisho"
+vim.g['eskk#dictionary'] = { path = '~/.jisho/.eskk-jisyo', sorted = 1, encoding = 'utf-8' }
+vim.g['eskk#large_dictionary'] = { path = "~/.jisho/SKK-JISYO.L", sorted = 1, encoding = 'euc-jp' }
+vim.g['eskk#enable_completion'] = 1
+vim.g['eskk#keep_state'] = 0
+vim.g['eskk#egg_like_newline'] = 1
 
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'
@@ -72,6 +75,7 @@ require('packer').startup(function()
     use 'jiangmiao/auto-pairs'
     use 'terryma/vim-multiple-cursors'
     use 'neovim/nvim-lspconfig'
+    use 'tyru/eskk.vim'
     use {
         'williamboman/nvim-lsp-installer',
         config = function()
