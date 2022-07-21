@@ -99,11 +99,6 @@ _G.packer_plugins = {
     path = "/home/boke0/.local/share/nvim/site/pack/packer/start/iceberg.vim",
     url = "https://github.com/cocopon/iceberg.vim"
   },
-  ["monokai.nvim"] = {
-    loaded = true,
-    path = "/home/boke0/.local/share/nvim/site/pack/packer/start/monokai.nvim",
-    url = "https://github.com/tanvirtin/monokai.nvim"
-  },
   ["nvim-cmp"] = {
     config = { "\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimÂ\5\1\0\t\0+\0[6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0035\4\n\0009\5\b\0009\5\t\5B\5\1\2=\5\v\0049\5\b\0009\5\f\5B\5\1\2=\5\r\0049\5\b\0009\5\14\0055\a\17\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\19\0049\5\b\0009\5\20\0055\a\21\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\22\0049\5\b\0009\5\14\0055\a\24\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\25\0049\5\b\0009\5\20\0055\a\26\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\27\0049\5\b\0009\5\28\5)\aüÿB\5\2\2=\5\29\0049\5\b\0009\5\28\5)\a\4\0B\5\2\2=\5\30\0049\5\b\0009\5\t\5B\5\1\2=\5\31\0049\5\b\0009\5\f\5B\5\1\2=\5 \0049\5\b\0009\5!\0055\a$\0009\b\"\0009\b#\b=\b\18\aB\5\2\2=\5%\4=\4\b\0039\4&\0009\4'\0044\6\3\0005\a(\0>\a\1\0065\a)\0>\a\2\0064\a\3\0005\b*\0>\b\1\aB\4\3\2=\4'\3B\1\2\1K\0\1\0\1\0\1\tname\vbuffer\1\0\1\tname\nvsnip\1\0\1\tname\rnvim_lsp\fsources\vconfig\t<CR>\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\14<C-Space>\n<C-f>\n<C-b>\16scroll_docs\t<Up>\1\0\0\v<Down>\1\0\0\vSelect\n<C-p>\1\0\0\21select_prev_item\n<C-n>\rbehavior\1\0\0\vInsert\19SelectBehavior\21select_next_item\n<C-c>\nclose\n<C-y>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0" },
     loaded = true,
@@ -125,6 +120,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/boke0/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["photon.vim"] = {
+    loaded = true,
+    path = "/home/boke0/.local/share/nvim/site/pack/packer/start/photon.vim",
+    url = "https://github.com/axvr/photon.vim"
   },
   ["unite.vim"] = {
     loaded = true,
