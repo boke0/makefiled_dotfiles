@@ -25,6 +25,7 @@ vim.o.hlsearch=true
 vim.o.clipboard="unnamedplus"
 vim.o.background='dark'
 vim.o.imdisable=true
+vim.o.encoding='UTF-8'
 
 vim.g.mapleader=" "
 
