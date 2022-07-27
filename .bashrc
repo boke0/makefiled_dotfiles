@@ -7,7 +7,8 @@ export GOPATH="$HOME/.go"
 export CLOUDSDK_PYTHON=python2
 export EDITOR=nvim
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
-export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$HOME/.anyenv/versions/2.6.8/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.google-cloud-sdk/bin:$HOME/.gsutil/gsutil/"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.deno/bin:/usr/local/go/bin:$HOME/.go/bin:$HOME/.anyenv/bin:$HOME/.anyenv/versions/2.6.8/bin:$HOME/.anyenv/envs/nodenv/bin:$HOME/.cargo/bin:/usr/lib/jvm/default/bin:$HOME/.google-cloud-sdk/bin:$HOME/.gsutil/gsutil/"
+export NIX_REMOTE=daemon
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export GIT_PS1_SHOWDIRTYSTATE=1
 if [ -x "`which anyenv`" ]; then
@@ -71,7 +72,11 @@ deh() {
 _dev() {
     local cur prev cword
     _get_comp_words_by_ref -n : cur prev cword
-    COMPREPLY=( $(compgen -W "$(ls -N "$HOME/Works")" -- "${cur}") )
+    if [ "$(uname)" == "Darwin" ]; then
+        COMPREPLY=( $(compgen -W "$(ls "$HOME/Works")" -- "${cur}") )
+    else
+        COMPREPLY=( $(compgen -W "$(ls -N "$HOME/Works")" -- "${cur}") )
+    fi
 }
 
 complete -F _dev dev
