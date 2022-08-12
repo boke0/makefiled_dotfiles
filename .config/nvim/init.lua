@@ -78,6 +78,16 @@ require('packer').startup(function()
     use 'terryma/vim-multiple-cursors'
     use 'neovim/nvim-lspconfig'
     use 'tyru/eskk.vim'
+    use 'nvim-lua/plenary.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        config = function()
+            vim.api.nvim_set_keymap('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', opt_n)
+            vim.api.nvim_set_keymap('n', '<Leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', opt_n)
+            vim.api.nvim_set_keymap('n', '<Leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>', opt_n)
+            vim.api.nvim_set_keymap('n', '<Leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>', opt_n)
+        end
+    }
     use {
         'williamboman/nvim-lsp-installer',
         config = function()
@@ -134,6 +144,26 @@ require('packer').startup(function()
     use "hrsh7th/cmp-buffer"
 
     use "hrsh7th/vim-vsnip"
+    
+    use {
+        "tomtom/tcomment_vim",
+        config = function()
+        end
+    }
+
+    use {
+        "dinhhuy258/vintellij",
+        branch = "lsp",
+        config = function()
+            vim.api.nvim_set_keymap('n', '<Leader>jf', '<cmd>lua require("vintellij.commands.import").optimize_import()<CR>', opt_n)
+            -- vim.api.nvim_set_keymap('n', '<Leader>ji', ':Implement<CR>', opt_n)
+            -- vim.api.nvim_set_keymap('n', '<Leader>jc', ':FixProblem<CR>', opt_n)
+            -- vim.api.nvim_set_keymap('n', '<Leader>jf', ':JavaOptimizeImports<CR>', opt_n)
+            -- vim.api.nvim_set_keymap('n', '<Leader>jr', ':RunProject<CR>', opt_n)
+            -- vim.api.nvim_set_keymap('n', '<Leader>jt', ':RunTest<CR>', opt_n)
+            -- vim.api.nvim_set_keymap('n', '<Leader>jd', ':GotoDeclaration<CR>', opt_n)
+        end
+    }
 
     vim.cmd("colorscheme photon")
 end)
