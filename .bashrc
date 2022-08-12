@@ -122,4 +122,3 @@ alias ......="cd ../../../../../.. && pushd ."
 alias .......="cd ../../../../../../.. && pushd ."
 alias ,,="popd"
 
-source "$HOME/.cargo/env"

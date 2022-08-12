@@ -12,4 +12,3 @@ deploy:
 
 init:
 	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
-

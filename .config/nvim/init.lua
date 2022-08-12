@@ -57,7 +57,6 @@ vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', opt_n)
 vim.api.nvim_set_keymap('n', '<Leader>n', ':nohlsearch<CR><ESC>', opt_n)
 vim.api.nvim_set_keymap('n', '<Leader>f', ':VimFiler<CR>', opt_n)
 
-
 vim.g.vimfiler_safe_mode_by_default=0
 vim.g['eskk#directory'] = "~/.jisho"
 vim.g['eskk#dictionary'] = { path = '~/.jisho/.eskk-jisyo', sorted = 1, encoding = 'utf-8' }

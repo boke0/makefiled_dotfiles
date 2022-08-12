@@ -8,6 +8,11 @@ make init
 make deploy
 ```
 
+### Vim setup
+Vimを起動し、コマンドモードで
+```
+:call dein#install()
+=======
 ### NeoVIM setup
 Vimを起動し、コマンドモードで
 ```
@@ -16,6 +21,7 @@ Vimを起動し、コマンドモードで
 
 ### Git setup
 .gitconfig.userを作成し、以下を記載
+
 ```
 [user]
     name = ***
