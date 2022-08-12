@@ -1,6 +1,6 @@
-[user]
-	email = boke0@u-gen.site
-	name = boke0
+[include]
+	path = .gitconfig.user
+
 [pull]
 	rebase = false
 [init]
