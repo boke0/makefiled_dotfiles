@@ -216,6 +216,10 @@ time([[Config for tcomment_vim]], false)
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimÂ\5\1\0\t\0+\0[6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0035\4\n\0009\5\b\0009\5\t\5B\5\1\2=\5\v\0049\5\b\0009\5\f\5B\5\1\2=\5\r\0049\5\b\0009\5\14\0055\a\17\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\19\0049\5\b\0009\5\20\0055\a\21\0009\b\15\0009\b\16\b=\b\18\aB\5\2\2=\5\22\0049\5\b\0009\5\14\0055\a\24\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\25\0049\5\b\0009\5\20\0055\a\26\0009\b\15\0009\b\23\b=\b\18\aB\5\2\2=\5\27\0049\5\b\0009\5\28\5)\aüÿB\5\2\2=\5\29\0049\5\b\0009\5\28\5)\a\4\0B\5\2\2=\5\30\0049\5\b\0009\5\t\5B\5\1\2=\5\31\0049\5\b\0009\5\f\5B\5\1\2=\5 \0049\5\b\0009\5!\0055\a$\0009\b\"\0009\b#\b=\b\18\aB\5\2\2=\5%\4=\4\b\0039\4&\0009\4'\0044\6\3\0005\a(\0>\a\1\0065\a)\0>\a\2\0064\a\3\0005\b*\0>\b\1\aB\4\3\2=\4'\3B\1\2\1K\0\1\0\1\0\1\tname\vbuffer\1\0\1\tname\nvsnip\1\0\1\tname\rnvim_lsp\fsources\vconfig\t<CR>\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\14<C-Space>\n<C-f>\n<C-b>\16scroll_docs\t<Up>\1\0\0\v<Down>\1\0\0\vSelect\n<C-p>\1\0\0\21select_prev_item\n<C-n>\rbehavior\1\0\0\vInsert\19SelectBehavior\21select_next_item\n<C-c>\nclose\n<C-y>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n®\3\0\0\6\0\r\0!6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0006\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0006\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\t\0'\4\n\0006\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\v\0'\4\f\0006\5\6\0B\0\5\1K\0\1\0:<cmd>lua require(\"telescope.builtin\").help_tags()<CR>\15<Leader>fh8<cmd>lua require(\"telescope.builtin\").buffers()<CR>\15<Leader>fb:<cmd>lua require(\"telescope.builtin\").live_grep()<CR>\15<Leader>fg\nopt_n;<cmd>lua require(\"telescope.builtin\").find_files()<CR>\15<Leader>ff\6n\20nvim_set_keymap\bapi\bvim\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 -- Config for: vintellij
 time([[Config for vintellij]], true)
 try_loadstring("\27LJ\2\nš\1\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0006\5\6\0B\0\5\1K\0\1\0\nopt_nH<cmd>lua require(\"vintellij.commands.import\").optimize_import()<CR>\15<Leader>jf\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vintellij")
@@ -224,10 +228,6 @@ time([[Config for vintellij]], false)
 time([[Config for nvim-lsp-installer]], true)
 try_loadstring("\27LJ\2\nò\1\0\1\6\0\f\0\0234\1\0\0006\2\0\0=\2\0\0016\2\2\0'\4\3\0B\2\2\0029\2\4\0026\4\5\0009\4\6\0049\4\a\0049\4\b\4B\4\1\0A\2\0\2=\2\1\1\18\4\0\0009\2\t\0\18\5\1\0B\2\3\0016\2\5\0009\2\n\2'\4\v\0B\2\2\1K\0\1\0\31 do User LspAttachBuffers \bcmd\nsetup\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\frequire\17capabilities\14on_attachO\1\0\4\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\1\2\0003\3\3\0B\1\2\1K\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0", "config", "nvim-lsp-installer")
 time([[Config for nvim-lsp-installer]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n®\3\0\0\6\0\r\0!6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0006\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0006\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\t\0'\4\n\0006\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\v\0'\4\f\0006\5\6\0B\0\5\1K\0\1\0:<cmd>lua require(\"telescope.builtin\").help_tags()<CR>\15<Leader>fh8<cmd>lua require(\"telescope.builtin\").buffers()<CR>\15<Leader>fb:<cmd>lua require(\"telescope.builtin\").live_grep()<CR>\15<Leader>fg\nopt_n;<cmd>lua require(\"telescope.builtin\").find_files()<CR>\15<Leader>ff\6n\20nvim_set_keymap\bapi\bvim\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
 -- Config for: nvim-dap
 time([[Config for nvim-dap]], true)
 try_loadstring("\27LJ\2\n…\1\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0006\5\6\0B\0\5\1K\0\1\0\nopt_n4<cmd>lua require(\"dap\").toggle_breakpoint()<CR>\14<Leader>b\6n\20nvim_set_keymap\bapi\bvim\0", "config", "nvim-dap")
