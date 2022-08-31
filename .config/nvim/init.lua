@@ -164,6 +164,16 @@ require('packer').startup(function()
         end
     }
 
+    use {
+        "mfussenegger/nvim-dap",
+        config = function()
+            vim.api.nvim_set_keymap('n', '<Leader>b', '<cmd>lua require("dap").toggle_breakpoint()<CR>', opt_n)
+        end
+    }
+    use "mfussenegger/nvim-dap-ui"
+    use "leoluz/nvim-dap-go"
+    use "theHamsta/nvim-dap-virtual-text"
+
     vim.cmd("colorscheme photon")
 end)
 
