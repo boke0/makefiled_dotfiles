@@ -28,4 +28,4 @@
 	ps = push
 	pso = push -u origin
 	pl = pull
-	plo = pull origin
+	plo = pull origin --recurse-submodules
