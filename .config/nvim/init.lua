@@ -78,6 +78,13 @@ require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     use 'tyru/eskk.vim'
     use 'nvim-lua/plenary.nvim'
+    use 'vim-denops/denops.vim'
+    use {
+        'matsui54/denops-popup-preview.vim',
+        config = function()
+            vim.cmd("call popup_preview#enable()")
+        end
+    }
     use {
         'nvim-telescope/telescope.nvim',
         config = function()
@@ -176,6 +183,13 @@ require('packer').startup(function()
     use "mfussenegger/nvim-dap-ui"
     use "leoluz/nvim-dap-go"
     use "theHamsta/nvim-dap-virtual-text"
+    use {
+        "ferrine/md-img-paste.vim",
+        config = function()
+            vim.g['mdip_imgdir_absolute'] = 'img'
+            vim.api.nvim_set_keymap('n', '<Leader>p', ':call mdip#MarkdownClipboardImage()<CR>', opt_n)
+        end
+    }
 
     vim.cmd("colorscheme photon")
 end)
