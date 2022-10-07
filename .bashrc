@@ -16,6 +16,10 @@ if [ -x "`which anyenv`" ]; then
     eval "$(anyenv init -)"
 fi
 
+if [ -x `which nodenv` ]; then
+    export PATH="$PATH:$(npm bin -g)"
+fi
+
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
 
