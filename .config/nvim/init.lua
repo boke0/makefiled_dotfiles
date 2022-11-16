@@ -34,7 +34,7 @@ opt_ns = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opt_ns)
 vim.api.nvim_set_keymap('n', '<Leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opt_ns)
 vim.api.nvim_set_keymap('n', '<Leader>N', '<cmd>lua vim.lsp.buf.references<CR>', opt_ns)
-vim.api.nvim_set_keymap('n', '<Leader>s', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opt_ns)
+vim.api.nvim_set_keymap('n', '<Leader>s', '<cmd>lua vim.diagnostic.open_float()<CR>', opt_ns)
 vim.api.nvim_set_keymap('n', '[s', '<cmd>lua vim.lsp.buf.diagnostic.goto_prev()<CR>', opt_ns)
 vim.api.nvim_set_keymap('n', ']s', '<cmd>lua vim.lsp.buf.diagnostic.goto_next()<CR>', opt_ns)
 vim.api.nvim_set_keymap('n', '<Leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt_ns)
@@ -101,7 +101,7 @@ require('packer').startup(function()
             lsp_installer.on_server_ready(function(server)
                 local opts = {}
                 opts.on_attach = on_attach
-                opts.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+                opts.capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
                 server:setup(opts)
                 vim.cmd [[ do User LspAttachBuffers ]]
