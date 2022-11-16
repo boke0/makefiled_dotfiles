@@ -75,7 +75,14 @@ require('packer').startup(function()
     use 'vim-airline/vim-airline'
     use 'jiangmiao/auto-pairs'
     use 'terryma/vim-multiple-cursors'
-    use 'neovim/nvim-lspconfig'
+    use {
+        'neovim/nvim-lspconfig',
+        config=function()
+            require'lspconfig'.tsserver.setup{
+                cmd = { "typescript-language-server", "--stdio" }
+            }
+        end
+    }
     use 'tyru/eskk.vim'
     use 'nvim-lua/plenary.nvim'
     use 'vim-denops/denops.vim'
@@ -109,7 +116,6 @@ require('packer').startup(function()
         end
     }
     use 'axvr/photon.vim'
-
     use {
         "hrsh7th/nvim-cmp",
         config = function()
@@ -154,20 +160,6 @@ require('packer').startup(function()
     use {
         "tomtom/tcomment_vim",
         config = function()
-        end
-    }
-
-    use {
-        "dinhhuy258/vintellij",
-        branch = "lsp",
-        config = function()
-            vim.api.nvim_set_keymap('n', '<Leader>jf', '<cmd>lua require("vintellij.commands.import").optimize_import()<CR>', opt_n)
-            -- vim.api.nvim_set_keymap('n', '<Leader>ji', ':Implement<CR>', opt_n)
-            -- vim.api.nvim_set_keymap('n', '<Leader>jc', ':FixProblem<CR>', opt_n)
-            -- vim.api.nvim_set_keymap('n', '<Leader>jf', ':JavaOptimizeImports<CR>', opt_n)
-            -- vim.api.nvim_set_keymap('n', '<Leader>jr', ':RunProject<CR>', opt_n)
-            -- vim.api.nvim_set_keymap('n', '<Leader>jt', ':RunTest<CR>', opt_n)
-            -- vim.api.nvim_set_keymap('n', '<Leader>jd', ':GotoDeclaration<CR>', opt_n)
         end
     }
 
